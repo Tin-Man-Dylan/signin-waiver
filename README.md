@@ -1,6 +1,7 @@
-# keypad-app-basic
-A basic keypad app that uses React front-end and Express back-end, and axios to send data between them. A good basic design to build off of.
+# signin-waiver
+A simple page for collecting user information and signature for a waiver, and sending the data to MailChimp and Google Drive.
 
+## About the App
 
 ## How to Use
 
