@@ -1,0 +1,83 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+.logo{
+  width:200px;
+  height: auto;
+}
+
+.App-header {
+  background-color: #222;
+  
+  padding: 10px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.button{
+   background-color: darkblue;
+   color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid black;
+     
+     text-align: center;
+     margin: auto;    
+}
+.button:hover {
+    background-color: blue; /* Green */
+    color: white;
+}
+.Network-button{
+   background-color: #4CAF50;
+   color: white;
+    padding: 10px 10px;
+    border-radius: 8px;
+    border: 2px solid black;
+     text-align: center;
+     margin: auto;
+      width: 70px;
+    height: 70px;
+    font-size: 50px;
+    font-family: "arial","times";
+    font-weight: bold;
+}
+.Network-button:hover {
+    background-color: blue; /* Green */
+    color: white;
+}
+.Inline-butts{
+display: inline;
+}
+.Status-light{
+  display: inline-block;
+   color: white;
+    padding: 10px 10px;
+    border-radius: 8px;
+    border: 2px solid black;
+     text-align: center;
+     margin: auto;    
+    font-size: 10px;
+    font-family: "arial","times";
+    font-weight: bold;
+}
+.Status-light-on{
+  background-color: #6600ff;
+  }
+.Status-light-off{
+  background-color: #444444;
+  }
