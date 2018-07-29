@@ -11,8 +11,12 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "html2canvas": "^1.0.0-alpha.12",
     "jade": "~1.11.0",
+    "jspdf": "^1.4.1",
     "morgan": "~1.8.1",
+    "react-router-dom": "^4.3.1",
+    "react-signature-pad": "0.0.6",
     "serve-favicon": "~2.4.2"
   }
 }
