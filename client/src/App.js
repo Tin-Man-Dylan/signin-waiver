@@ -336,6 +336,7 @@ export default class Waiver extends React.Component {
   }
 
     printDocument() {
+      console.log();
       if(!this.isEmpty()){ //Makes sure a signature has been submitted
     const input = document.getElementById('divToPrint'); //Takes element from div to convert to image then to PDF
     html2canvas(input)

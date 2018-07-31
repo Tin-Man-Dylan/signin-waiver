@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import logo from './logo.svg';
-/* maybe all this stuff needs to be server side
-var GoogleSpreadsheet = require('google-spreadsheet');
+//maybe all this stuff needs to be server side
 
-var doc = new GoogleSpreadsheet('1EnS4hlkup-CNL8jCn3oWhtHBzMud3pbbUfu_q0kXI9w');*/
 
 var isEnabled = false;
 
@@ -16,6 +14,9 @@ var isEnabled = false;
       return <br/>
     }
   }
+
+ 
+ 
 
 class Signin extends Component {
   
@@ -36,6 +37,7 @@ class Signin extends Component {
    
     this.handleButton = this.handleButton.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);//These make it so you can use the this.state in the handlers
 
   
 }
@@ -69,8 +71,17 @@ class Signin extends Component {
       //this.state.firstInput,this.state.lastInput,this.state.emailInput,this.state.phoneInput these values need to be sent to the spreadsheet in here
       //Need to have a check to see that required fields are filled in (basic checking done)
       //There will then be a redirect to the waiver page
+       axios.post('/send_signin', {
+          signin_first: this.state.firstInput,
+          signin_last: this.state.lastInput,
+          signin_email: this.state.emailInput,
+          signin_phone: this.state.phoneInput
+          })
+        .then(function (response) {
+          console.log(response);
+    })
       console.log("signin submitted");
-      //window.location = '/waiver/' // Redirects to waiver page
+      window.location = '/waiver/' // Redirects to waiver page
     }
 
 
@@ -99,7 +110,7 @@ class Signin extends Component {
               && this.state.lastInput.length > 0
               && this.state.emailInput.length > 0
               && this.state.phoneInput.length > 0}
-            <input disabled={!isEnabled} type="submit" value="Submit" className="btn btn-primary"/>
+            <input disabled={!isEnabled} type="submit" value="Submit" className="btn btn-primary button"/>
           </form>
 
           

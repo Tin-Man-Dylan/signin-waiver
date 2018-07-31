@@ -44,6 +44,14 @@
     background-color: blue; /* Green */
     color: white;
 }
+.button:disabled{
+  background-color: #dddddd;
+
+}
+.button:disabled:hover{
+  background-color: #dddddd;
+
+}
 .Network-button{
    background-color: #4CAF50;
    color: white;

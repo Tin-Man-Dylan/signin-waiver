@@ -9,6 +9,8 @@ var router = express.Router();
 var index = require('./routes/index');
 var buttons = require('./routes/buttons');
 var send_keypress = require('./routes/send_keypress');
+var send_signin = require('./routes/send_signin');
+
 
 var app = express();
 
@@ -24,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.use('/', index);
 app.use('/buttons', buttons);
 app.use('/send_keypress', send_keypress);
+app.use('/send_signin', send_signin);
 
 
 // catch 404 and forward to error handler
