@@ -333,12 +333,16 @@ export default class Waiver extends React.Component {
     var signature = this.refs.cv;
     if(!this.isEmpty()){
     this.setState({trimmedDataURL: this.toDataURL()}); //takes the signature and converts it to an image, stored in the state trimmedDataURL
-    console.log("submitted")}
+    console.log("submitted")
+  }
   }
 
     printDocument() {
       console.log();
       if(!this.isEmpty()){ //Makes sure a signature has been submitted
+            if (window.confirm("Are you ready to submit the waiver?")) { //Just a simple JS confirmation alert
+    console.log("You pressed OK!");
+
     const input = document.getElementById('divToPrint'); //Takes element from div to convert to image then to PDF
     html2canvas(input)
       .then((canvas) => {
@@ -355,6 +359,9 @@ export default class Waiver extends React.Component {
         .then(function (response) {
           console.log(response);
     })
+        } else {
+          console.log("You pressed Cancel!");
+      }
     }
   }
 
