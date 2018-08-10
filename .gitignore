@@ -1,2 +1,3 @@
 **/node_modules
 **/routes/signin-waiver.json
+**/routes/mailchimp-api.json

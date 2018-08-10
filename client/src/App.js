@@ -3,6 +3,7 @@ import Bezier from "./bezier";
 import Point from "./point"
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import axios from 'axios';
 
 var tempDate = new Date();
   var date = tempDate.getFullYear() + '-' + (tempDate.getMonth()+1) + '-' + tempDate.getDate();
@@ -346,8 +347,14 @@ export default class Waiver extends React.Component {
         const pdf = new jsPDF();
         pdf.addImage(imgData, 'JPEG', 0, 0);
         // pdf.output('dataurlnewwindow');
-        pdf.save("download.pdf"); //Should have it so it takes the name from the sign in and names the PDF that
+        pdf.save(this.props.match.params.name + ".pdf"); //Should have it so it takes the name from the sign in and names the PDF that
       });
+        axios.post('/send_pdf', {
+          pdf_name: this.props.match.params.name + ".pdf"
+          })
+        .then(function (response) {
+          console.log(response);
+    })
     }
   }
 

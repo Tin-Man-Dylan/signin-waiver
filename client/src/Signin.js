@@ -81,7 +81,7 @@ class Signin extends Component {
           console.log(response);
     })
       console.log("signin submitted");
-      window.location = '/waiver/' // Redirects to waiver page
+      window.location = '/waiver/'  + this.state.lastInput + this.state.firstInput// Redirects to waiver page
     }
 
 

@@ -10,7 +10,7 @@ const Routes = () => (
   <main>
       	<Switch>
       <Route exact path='/' component={Signin}/>
-      <Route path='/waiver' component={Waiver} />
+      <Route path='/waiver/:name' component={Waiver} />
        <Route path='*' component={Signin}/>
 
       </Switch>
