@@ -10,10 +10,10 @@ var hashHistory = Route.hashHistory;
 const Routes = () => (
   <main>
       	<Switch>
-      <Route exact path='/' component={Signin}/>
-      <Route path='/waiver/:name' component={Waiver} />
-      <Route path='/insta/' component={Insta} />
-       <Route path='*' component={Signin}/>
+      <Route exact path='/signin' component={Signin}/>
+      <Route path='/waiver/:lastname/:firstname' component={Waiver} />
+      <Route path='/' component={Insta} />
+       <Route path='*' component={Insta}/>
 
       </Switch>
   </main>

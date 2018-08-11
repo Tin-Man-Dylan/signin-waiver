@@ -351,14 +351,18 @@ export default class Waiver extends React.Component {
         const pdf = new jsPDF();
         pdf.addImage(imgData, 'JPEG', 0, 0);
         // pdf.output('dataurlnewwindow');
-        pdf.save(this.props.match.params.name + ".pdf"); //Should have it so it takes the name from the sign in and names the PDF that
+        pdf.save(this.props.match.params.lastname + this.props.match.params.firstname + ".pdf"); //Should have it so it takes the name from the sign in and names the PDF that
+        window.location = '/';
       });
         axios.post('/send_pdf', {
-          pdf_name: this.props.match.params.name + ".pdf"
+          pdf_name: this.props.match.params.name + this.props.match.params.firstname + ".pdf"
           })
         .then(function (response) {
           console.log(response);
+
     })
+
+        
         } else {
           console.log("You pressed Cancel!");
       }
@@ -374,31 +378,55 @@ export default class Waiver extends React.Component {
       <h1>Maker Cube Waiver Form</h1>
       </div>
       <div id="divToPrint"> {/*Everything in this div is saved on the PDF*/}
+        <h2>MAKER CUBE WAIVER AND RELEASE</h2>
       <div className='Waiver'> {/*Contents of the waiver, just use standard HTML*/}
-      <p>adjskdjasdasjkdjasjdjhasjhdjkasdjkasjhjd
-      asjkdaskljhdjkasdhjaskdaskjdhjasdkjhaskjd
-      asjdaskjdlkasjdlkajsdlkjaslkjdklaskjdlkjasdjlkas
-      kasldjaslkdjlkasjdlkasjdlkasjdklasjd</p>
-      <p>adjskdjasdasjkdjasjdjhasjhdjkasdjkasjhjd
-      asjkdaskljhdjkasdhjaskdaskjdhjasdkjhaskjd
-      asjdaskjdlkasjdlkajsdlkjaslkjdklaskjdlkjasdjlkas
-      kasldjaslkdjlkasjdlkasjdlkasjdklasjd</p>
-      <p>adjskdjasdasjkdjasjdjhasjhdjkasdjkasjhjd
-      asjkdaskljhdjkasdhjaskdaskjdhjasdkjhaskjd
-      asjdaskjdlkasjdlkajsdlkjaslkjdklaskjdlkjasdjlkas
-      kasldjaslkdjlkasjdlkasjdlkasjdklasjd</p>
-      <p>adjskdjasdasjkdjasjdjhasjhdjkasdjkasjhjd
-      asjkdaskljhdjkasdhjaskdaskjdhjasdkjhaskjd
-      asjdaskjdlkasjdlkajsdlkjaslkjdklaskjdlkjasdjlkas
-      kasldjaslkdjlkasjdlkasjdlkasjdklasjd</p>
+      
+      <p>Maker Cube Inc. (“Maker Cube”) operates the Maker Cube facilities (the “Facilities”) and the
+courses and workshops put on at the Facilities (the “Workshops”). By attending the Facilities
+and/or participating in the Workshops you (“you” or the “Participant”) hereby agree to this
+waiver and release. Please read carefully.</p>
+      <ol className = 'WaiverList'>
+      <li>I represent that I am competent and able to understand the nature and consequences of
+attending the Facilities and/or participating in the Workshops. I am aware that it may
+involve certain risks, dangers and hazards, including, but not limited to, personal injury,
+death, and property damage or loss. I voluntarily assume and accept all risks to myself and
+my personal property.</li>
+      <li>I agree to waive any and all claims that I have or may in the future have against Maker
+Cube, its shareholders, officers, directors, employees, partners, associates, affiliates, joint
+ventures, agents, and representatives(collectively, the “Releasees”) and to release the
+Releasees from any and all liability for any loss, damage, expense or injury including death
+that I may suffer, or that my next of kin may suffer as a result of my attendance at the
+Facilities and/or participation in the Workshops, due to any cause whatsoever including
+negligence, breach of contract, or breach of any statutory or other duty of care, and further
+including the failure on the part of the Releasees to take reasonable steps to safeguard
+myself from the associated risks, dangers and hazards.</li>
+      <li>I further agree to hold harmless and indemnify the Releasees from any and all liability for
+any property damage or personal injury to any third party resulting from my attendance at
+the Facilities and/or participation in the Workshops.</li>
+      <li>I understand that the Facilities and Workshops may be filmed, photographed, or recorded
+and I agree to allow any photos, videos, or other likeness of myself to be used for any
+legitimate purpose by Maker Cube, and their respective producers, sponsors, organizers
+and/or assigns, in their discretion. I hereby waive all claims of ownership, income, editorial
+content, and use of such media, and assign all copyright ownership to Maker Cube.</li>
+      <li>I understand and agree that this waiver shall be effective and binding upon my heirs,
+executors, administrators and assigns.</li>
+      <li>I agree that this waiver and any rights, duties and obligations as between the parties to this
+waiver shall be governed by and interpreted solely in accordance with the laws of the
+province of British Columbia.</li>
+      </ol>
+      <p><strong>I CONFIRM THAT I HAVE READ AND UNDERSTOOD THIS WAIVER AND RELEASE PRIOR TO
+SIGNING IT, AND I AM AWARE THAT BY SIGNING IT I AM WAIVING CERTAIN LEGAL RIGHTS
+WHICH I OR MY NEXT OF KIN, EXECUTORS, ADMINISTRATORS, ASSIGNS AND
+REPRESENTATIVES MAY HAVE AGAINST THE RELEASEES.</strong></p>
 
       </div>
+      <p> Name: {this.props.match.params.firstname} {this.props.match.params.lastname}</p>
         <br/>
                                 {this.state.trimmedDataURL ? <img className='sigImage'  src={this.state.trimmedDataURL} /> : null} {/*Displays a submitted signature on the waiver form*/}
       <br/>
       <p>{currDate}</p> {/*Displays the current date on the wavier form. See at the top of the file for declarations.*/}
       </div>
-      <div id="containSubmit"><button className=" print-button" onClick={() => this.printDocument()}>Submit Waiver</button></div>
+      
       <div id="signature-pad" className="m-signature-pad">
         <div className="m-signature-pad--body"> {/*this dev contains the canvas which the signature is written on, it uses all the functions above that I didn't write*/}
           <canvas ref="cv"></canvas>
@@ -411,6 +439,7 @@ export default class Waiver extends React.Component {
         
 
       </div>
+      <div id="containSubmit"><button className=" print-button" onClick={() => this.printDocument()}>Submit Waiver</button></div>
 
 
       </div>

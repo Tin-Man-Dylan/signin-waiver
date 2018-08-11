@@ -81,7 +81,7 @@ class Signin extends Component {
           console.log(response);
     })
       console.log("signin submitted");
-      window.location = '/waiver/'  + this.state.lastInput + this.state.firstInput// Redirects to waiver page
+      window.location = '/waiver/'  + this.state.lastInput + '/' + this.state.firstInput// Redirects to waiver page
     }
 
 
@@ -92,16 +92,27 @@ class Signin extends Component {
         <h1>Maker Cube Sign-In Form</h1>
           {/*<img className="logo" src={logo}  alt="logo"  width="400px"/>*/}
         </div>     
-                  <p>hello to everyones</p>
 
                   <form onSubmit={this.handleSubmit} method="post" encType="multipart/form-data" > {/*Use the handleSubmit function above to submit the data(text) from the fields below*/}
             <label>
-              <h3>Please sign in:</h3>
+              <h3>Please Sign-In:</h3>
+               <tr>
+                <td>First Name:</td>
+                <td><input name="firstInput" type="text" value={this.state.firstInput} onChange={this.handleChange} className="form-control"/></td>  {/*for each of the inputs it should update its state value on every change, as this is what is submitted*/}
+              </tr>
+              <tr>
+                <td>Last Name:</td>
+                <td><input name="lastInput" type="text" value={this.state.lastInput} onChange={this.handleChange} className="form-control"/></td> 
+              </tr>
+              <tr>
+                <td>Email Name:</td>
+                <td><input name="emailInput" type="text" value={this.state.emailInput} onChange={this.handleChange} className="form-control"/></td> 
+              </tr>
+              <tr>
+                <td>Phone Number:</td>
+                <td><input name="phoneInput" type="text" value={this.state.phoneInput} onChange={this.handleChange} className="form-control"/></td> 
+              </tr>
                 
-                    First Name:<input name="firstInput" type="text" value={this.state.firstInput} onChange={this.handleChange} className="form-control"/><br/> {/*for each of the inputs it should update its state value on every change, as this is what is submitted*/}
-                    Last Name:<input name="lastInput" type="text" value={this.state.lastInput} onChange={this.handleChange} className="form-control"/><br/>
-                    Email:<input name="emailInput" type="text" value={this.state.emailInput} onChange={this.handleChange} className="form-control"/><br/>
-                    Phone Number:<input name="phoneInput" type="text" value={this.state.phoneInput} onChange={this.handleChange} className="form-control"/><br/>
 
 
             </label><br/>
@@ -110,7 +121,7 @@ class Signin extends Component {
               && this.state.lastInput.length > 0
               && this.state.emailInput.length > 0
               && this.state.phoneInput.length > 0}
-            <input disabled={!isEnabled} type="submit" value="Submit" className="btn btn-primary button"/>
+            <input disabled={!isEnabled} type="submit" value="Submit" className="print-button"/>
           </form>
 
           
